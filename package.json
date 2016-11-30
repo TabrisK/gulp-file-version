@@ -1,0 +1,15 @@
+{
+  "name": "gulp-file-version",
+  "version": "1.0.3",
+  "description": "Add suffix to reference.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Helex",
+  "license": "ISC",
+  "dependencies": {
+    "glob": "^7.1.1",
+    "through2": "^2.0.2"
+  }
+}
