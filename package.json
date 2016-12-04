@@ -1,8 +1,8 @@
 {
   "name": "gulp-file-version",
-  "version": "1.0.5",
+  "version": "2.0.0",
   "description": "Add suffix to reference.",
-  "main": "index.js",
+  "main": "index-alpha.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/TabrisK/gulp-file-version"
@@ -12,8 +12,6 @@
   "author": "Helex",
   "license": "ISC",
   "dependencies": {
-    "glob": "^7.1.1",
-    "through2": "^2.0.2"
   },
   "homepage": "https://github.com/TabrisK/gulp-file-version"
 }

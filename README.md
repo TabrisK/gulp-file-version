@@ -22,12 +22,14 @@
 
 ###Code
 ```
-var fv = require("gulp-file-version")
-gulp.src([
-				"./dist/**/*.{js,css}"//the reference files' glob.In order to calculate suffix.
-			], { base: 'dist' })
-        .pipe(fv("./dist/index.html"));//where your index.html are.Of cause you can specify several HTML files by using glob.Such as "./dist/*.html"
+gulp.task("fv", function (cb) {
+    return gulp.src(root.dist + "/*.html")//your source file
+     .pipe(fv())//use gulp-file-version to add version information of script and link's reference
+     .pipe(gulp.dest(root.dist));//output
+
+});
 ```
+**PS:** the old version before 2.0.0 of has been deprecated.The new version is more easy to use,and less error.
 
 
 ### 特性
@@ -54,9 +56,12 @@ gulp.src([
 
 ###代码
 ```
-var fv = require("gulp-file-version")
-gulp.src([
-				"./dist/**/*.{js,css}"//指定引用文件路径的glob字符串。用于计算引用文件的后缀。
-			], { base: 'dist' })
-        .pipe(fv("./dist/index.html"));//你的html文件的glob字符串。当然你可以指定多个要添加版本信息的*.html。像这样"./dist/*.html"。
-```# gulp-file-version
+
+gulp.task("fv", function (cb) {
+    return gulp.src(root.dist + "/*.html")//你的源文件
+     .pipe(fv())//运行gulp-file-version，为文件中的script和link引用文件添加版本
+     .pipe(gulp.dest(root.dist));//输出
+
+});
+```
+**PS:** 2.0.0之前的旧版本已经弃用。新版本使用更为简单且错误更少。

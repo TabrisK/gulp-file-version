@@ -11,7 +11,7 @@ var fs = require('fs'),
 
 module.exports = function (indexPathStr) {
     var env = /win32/.exec(process.platform);
-    return through2.obj(function (chunk, enc, callback) {
+    return through2(function (chunk, enc, callback) {
         if (chunk.isStream()) {
             this.emit('error', new gutil.PluginError('gulp-debug', 'Streaming not supported'));
             return cb();
@@ -27,7 +27,11 @@ module.exports = function (indexPathStr) {
                 count += chunk.contents[index];
         }
 
+
         var pathList = env=="win32"?chunk.path.split("\\").reverse():chunk.path.split("/").reverse();
+        if(pathList[1] == indexPathStr.split("/").reverse()[1]){
+            pathList[1] = ".";
+        }
         var targetFileName = pathList[1] + "/" + pathList[0];
         replaceIndex(indexPathStr, targetFileName, count.toString(16));
         this.push(chunk);
