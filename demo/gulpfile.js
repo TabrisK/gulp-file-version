@@ -3,7 +3,7 @@
  */
 var gulp = require("gulp");
 var $ = require('gulp-load-plugins')();
-var fv = require("gulp-file-version");
+var fv = require("../index-alpha");
 var fs = require("fs");
 
 var root = {
@@ -26,6 +26,12 @@ gulp.task("fv", function (cb) {
 
 });
 
+gulp.task("tv", function(cb){
+    return gulp.src(root.dist + "/**/*.js")
+        .pipe(fv(/templateUrl:["']{1}([\w./]*)["']{1}/g,{base: "./app"}))
+        .pipe(gulp.dest(root.dist));
+});
+
 gulp.task("timestamp", function (cb) {
     var tzoffset = (new Date()).getTimezoneOffset() * 60000; //offset in milliseconds
     var localISOTime = (new Date(Date.now() - tzoffset)).toISOString().slice(0, -1);
@@ -33,6 +39,6 @@ gulp.task("timestamp", function (cb) {
     return cb();
 });
 
-gulp.task("build", gulp.series("compile", "fv", "timestamp"));
+gulp.task("build", gulp.series("compile", "fv", "tv", "timestamp"));
 
 gulp.task("default", gulp.parallel("build"));
