@@ -23,9 +23,9 @@
 ###Code
 ```
 gulp.task("fv", function (cb) {
-    return gulp.src(root.dist + "/*.html")//your source file
+    return gulp.src("./dist/*.html")//your source file
      .pipe(fv())//use gulp-file-version to add version information of script and link's reference
-     .pipe(gulp.dest(root.dist));//output
+     .pipe(gulp.dest("./dist"));//output
 
 });
 ```
@@ -40,9 +40,9 @@ options: Object
 Example:
 ```
 gulp.task("tv", function(cb){//匹配angularjs中templateUrl引用文件并添加版本信息
-    return gulp.src(root.dist + "/**/*.js")
+    return gulp.src("./dist/**/*.js")
         .pipe(fv(/templateUrl:["']{1}([\w./]*)["']{1}/g,{base: "./app"}))
-        .pipe(gulp.dest(root.dist));
+        .pipe(gulp.dest("./dist"));
 });
 ```
 
@@ -91,9 +91,9 @@ var something = {
 ```
 
 gulp.task("fv", function (cb) {
-    return gulp.src(root.dist + "/*.html")//你的源文件
+    return gulp.src("./dist/*.html")//你的源文件
      .pipe(fv())//运行gulp-file-version，为文件中的script和link引用文件添加版本
-     .pipe(gulp.dest(root.dist));//输出
+     .pipe(gulp.dest("./dist"));//输出
 
 });
 ```
@@ -108,9 +108,9 @@ options: Object
 Example:
 ```
 gulp.task("tv", function(cb){//匹配angularjs中templateUrl引用文件并添加版本信息
-    return gulp.src(root.dist + "/**/*.js")
+    return gulp.src("./dist/**/*.js")
         .pipe(fv(/templateUrl:["']{1}([\w./]*)["']{1}/g,{base: "./app"}))
-        .pipe(gulp.dest(root.dist));
+        .pipe(gulp.dest("./dist"));
 });
 ```
 

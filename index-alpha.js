@@ -29,11 +29,16 @@ function fv(regexp, opts) {
         var parsedPath = parsePath(file.relative);
         var content = file.contents.toString("utf8");
         var srcCollection = [];
-        var _regexp = regexp?new RegExp(regexp):new RegExp(/ src=['"]{1}([\/\w\.]*.js)[?v=\w]*['"]{1}| href=['"]{1}([\/\w\.]*.css)[?v=\w]*['"]{1}/g);
+        var _regexp = regexp?new RegExp(regexp):new RegExp(/ src=['"]{1}([\/\w\.-]*.js)[?v=\w]*['"]{1}| href=['"]{1}([\/\w\.-]*.css)[?v=\w]*['"]{1}/g);
         var r = _regexp;
         var temp = r.exec(content);
         while(temp){
-            temp = temp[1]?temp[1]:temp[2];
+            for(var index = 1; index < temp.length; index++){
+                if(temp[index]){
+                    temp = temp[index];
+                    break;
+                }
+            }
             srcCollection.push(temp);
             temp = r.exec(content);
         }

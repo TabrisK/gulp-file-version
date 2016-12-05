@@ -17,9 +17,6 @@ gulp.task("compile", function () {
 });
 
 gulp.task("fv", function (cb) {
-    /*return gulp.src(root.dist + "/!*.js")
-        .pipe(fv(root.dist + "/*.html"))
-        .pipe(gulp.dest(root.dist));*/
     return gulp.src(root.dist + "/*.html")
      .pipe(fv())
      .pipe(gulp.dest(root.dist));
