@@ -18,14 +18,14 @@ gulp.task("compile", function () {
 
 gulp.task("fv", function (cb) {
     return gulp.src(root.dist + "/*.html")
-     .pipe(fv())
+     .pipe(fv({Hash: "md5"}))
      .pipe(gulp.dest(root.dist));
 
 });
 
 gulp.task("tv", function(cb){
     return gulp.src(root.dist + "/**/*.js")
-        .pipe(fv(/templateUrl:["']{1}([\w./]*)["']{1}/g,{base: "./app"}))
+        .pipe(fv(/templateUrl:["']{1}([\w./]*)["']{1}/g,{base: "./app", Hash: "md5"}))
         .pipe(gulp.dest(root.dist));
 });
 
