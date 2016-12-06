@@ -2,6 +2,11 @@
 
 - Add a version info to your script references in *.html file
 
+### Install
+```shell
+npm install gulp-file-version
+```
+
 ###Example
 ```
 
