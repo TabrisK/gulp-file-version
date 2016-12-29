@@ -1,10 +1,10 @@
-### Environment
-
-- node version >= 6.0.0
-
 ### Feature
 
 - Add a version info to your script references in *.html file
+
+### Environment
+
+- node version >= 6.0.0
 
 ### Install
 ```shell
@@ -74,13 +74,13 @@ var something = {
 ...
 ```
 **PS:** the old version before 2.0.0 of has been deprecated.The new version is more easy to use,and less error.
-### 环境
-
-- node 版本 >= 6.0.0
-
 ### 特性
 
 - 为*.html文件的引用添加版本信息
+
+### 环境
+
+- node 版本 >= 6.0.0
 
 ###示例
 ```
